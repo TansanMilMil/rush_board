@@ -1,0 +1,18 @@
+# please add general patterns to your global ignore list
+# see https://github.com/github/gitignore#readme
+.DS_STORE
+*.swp
+*.rbc
+*.sass-cache
+/pkg
+/Gemfile.lock
+/coverage
+.yardoc
+/doc
+
+# Ignore bundler config.
+/.bundle
+# Ignore bundler gems.
+vendor/bundle
+/log/*
+/tmp/*

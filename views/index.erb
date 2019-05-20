@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Dashboard</title>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./index.css">
     <meta http-equiv="refresh" content="600">
   </head>
   
@@ -13,9 +14,22 @@
         <!-- 左列 -->
         <div class="col">
           <div class="card">
-            <h4 class="card-header">タイトル1</h4>
+            <h4 class="card-header">天気予報</h4>
             <div class="card-body">
-              <p class="card-text">本文1</p>
+              <p class="card-text">
+                <div class="mb-1">
+                  <strong class="mr-2">今日</strong>:
+                  <img src="<%= @today[:image_url] %>"><%= @today[:weather_state] %>
+                  <span class="text-info">最低<%= @today[:temperature_min] %>℃</span>
+                  <span class="text-danger">最高<%= @today[:temperature_max] %>℃</span>
+                </div>
+                <div class="mb-1">
+                  <strong class="mr-2">明日</strong>:
+                  <img src="<%= @tomorrow[:image_url] %>"><%= @tomorrow[:weather_state] %>
+                  <span class="text-info">最低<%= @tomorrow[:temperature_min] %>℃</span>
+                  <span class="text-danger">最高<%= @tomorrow[:temperature_max] %>℃</span>
+                </div>
+              </p>
             </div>
           </div>
           
