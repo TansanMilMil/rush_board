@@ -14,7 +14,7 @@ class App < Sinatra::Base
   end
 
   # 天気情報取得
-  def get_weather_info
+  private def get_weather_info
     require 'uri'
     require 'net/http'
     require 'yaml'
@@ -54,7 +54,20 @@ class App < Sinatra::Base
   end
 
   # 鉄道情報取得
-  def get_train_info
+  private def get_train_info
+    require 'uri'
+    require 'net/http'
+    require 'yaml'
+    data = Net::HTTP.get(URI.parse('https://rti-giken.jp/fhc/api/train_tetsudo/delay.json'))
+    train_info = YAML.load(data)
+    puts train_info
 
+    train_info = train_info.select { |item| item['company'] =~ /JR西日本/ }
+    @train_info_message = '遅延情報はありません'
+    @train_head_class = ''
+    if !train_info.empty?
+      @train_info_message = train_info.map { |item| item['name'] }.join('、')  
+      @train_head_class = 'bg-danger'
+    end
   end
 end
