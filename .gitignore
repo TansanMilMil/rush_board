@@ -16,3 +16,5 @@
 vendor/bundle
 /log/*
 /tmp/*
+
+.solargraph.yml
