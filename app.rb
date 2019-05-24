@@ -73,7 +73,7 @@ class App < Sinatra::Base
 
   # Googleニュース取得
   private def get_google_news
-    require 'RSS'
+    require 'rss'
     url = 'http://news.google.com/news?hl=ja&ned=jp&ie=UTF-8&oe=UTF-8&output=rss&topic=t'
     rss = RSS::Parser.parse(url)
     @news = []
