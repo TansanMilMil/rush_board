@@ -10,6 +10,7 @@ class App < Sinatra::Base
   get '/' do
     get_weather_info
     get_train_info
+    get_google_news
     erb :index
   end
 
@@ -60,7 +61,6 @@ class App < Sinatra::Base
     require 'yaml'
     data = Net::HTTP.get(URI.parse('https://rti-giken.jp/fhc/api/train_tetsudo/delay.json'))
     train_info = YAML.load(data)
-    puts train_info
 
     train_info = train_info.select { |item| item['company'] =~ /JR西日本/ }
     @train_info_message = '遅延情報はありません'
@@ -68,6 +68,25 @@ class App < Sinatra::Base
     if !train_info.empty?
       @train_info_message = train_info.map { |item| item['name'] }.join('、')  
       @train_head_class = 'bg-danger'
+    end
+  end
+
+  # Googleニュース取得
+  private def get_google_news
+    require 'RSS'
+    url = 'http://news.google.com/news?hl=ja&ned=jp&ie=UTF-8&oe=UTF-8&output=rss&topic=t'
+    rss = RSS::Parser.parse(url)
+    @news = []
+    rss.channel.items.each do |item|
+      if @news.length < 7
+        @news.push(
+          {
+            title: item.title,
+            link: item.link,
+            description: item.description
+          }
+        )
+      end
     end
   end
 end

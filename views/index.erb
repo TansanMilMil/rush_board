@@ -10,10 +10,10 @@
   
   <body>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row no-gutters">
         <!-- 左列 -->
         <div class="col">
-          <div class="card">
+          <div class="card mt-2 mr-2">
             <h4 class="card-header">天気予報</h4>
             <div class="card-body">
               <p class="card-text">
@@ -33,8 +33,8 @@
             </div>
           </div>
           
-          <div class="card">
-            <h4 class="card-header text-white <%= @train_head_class %>">電車遅延情報</h4>
+          <div class="card mt-2 mr-2 <%= @train_head_class %>">
+            <h4 class="card-header">電車遅延情報</h4>
             <div class="card-body">
               <p class="card-text"><%= @train_info_message %></p>
             </div>
@@ -43,17 +43,12 @@
         
         <!-- 右列 -->
         <div class="col">
-          <div class="card">
-            <h4 class="card-header text-white"></h4>
+          <div class="card mt-2">
+            <h4 class="card-header">NEWS</h4>
             <div class="card-body">
-              <p class="card-text"></p>
-            </div>
-          </div>
-          
-          <div class="card text-white">
-            <h4 class="card-header"></h4>
-            <div class="card-body">
-              <p class="card-text"></p>
+            <% @news.each do |article| %>
+              <p class="card-text"><a href="<%= article[:link] %>"><%= article[:title] %></a></p>
+            <% end %>
             </div>
           </div>
         </div>
