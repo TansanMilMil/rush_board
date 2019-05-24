@@ -47,7 +47,7 @@
             <h4 class="card-header">NEWS</h4>
             <div class="card-body">
             <% @news.each do |article| %>
-              <p class="card-text"><a href="<%= article[:link] %>"><%= article[:title] %></a></p>
+              <p class="card-text"><a href="<%= article[:link] %>">🌎</a> <%= article[:title] %></p>
             <% end %>
             </div>
           </div>
@@ -61,7 +61,7 @@
       settimeoutReload = setTimeout(() => {
         console.log('reload!');
         location.reload();
-      }, 10000);
+      }, 180000);
     </script>
   </body>
 </html>
