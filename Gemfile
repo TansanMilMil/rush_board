@@ -4,6 +4,6 @@ source 'https://rubygems.org'
 gem 'sinatra', require: 'sinatra/base'
 
 group :development, :test do
-  #gem 'sinatra-contrib', require: 'sinatra/reloader'
-  #gem 'solargraph'
+  gem 'sinatra-contrib', require: 'sinatra/reloader'
+  gem 'solargraph'
 end
