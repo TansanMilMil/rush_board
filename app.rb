@@ -77,7 +77,7 @@ class App < Sinatra::Base
     rss = RSS::Parser.parse(url)
     @news = []
     rss.channel.items.each do |item|
-      if @news.length < 7
+      if @news.length < 12
         @news.push(
           {
             title: item.title,

@@ -1,0 +1,12 @@
+.card-h-100 {
+  height: calc(100vh - 16px);
+}
+
+.carousel-item {
+  height: 340px;
+}
+
+img.icon {
+  height: 30px;
+  width: 30px;
+}
