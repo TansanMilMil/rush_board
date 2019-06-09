@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'date'
 
 class App < Sinatra::Base
   configure :development do
@@ -40,6 +41,7 @@ class App < Sinatra::Base
     end
 
     @today = { 
+      date: Date.today,
       weather_state: forecast_obj['forecasts'][0]['telop'],
       temperature_min: today_temperature_min,
       temperature_max: today_temperature_max,

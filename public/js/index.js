@@ -9,3 +9,7 @@ function autoReload() {
     location.reload();
   }, 180000);
 }
+
+function closeWindow() {
+  window.close();
+}

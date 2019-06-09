@@ -1,9 +1,38 @@
+body {
+  font-size: 2.5vw;
+}
+
+#main-area {
+  position: relative;
+}
+
+#close-button {
+  position: absolute;
+  right: 0;
+  top: -4px;
+  z-index: 1;
+}
+
+.current-date{
+  font-size: 5vw;
+}
+
+.add-bottom-bar {
+  padding: 1vw;
+  margin-bottom: 1vw;
+  border-bottom: gray 1px solid;
+}
+
 .card-h-100 {
   height: calc(100vh - 16px);
 }
 
 .carousel-item {
-  height: 370px;
+  height: 590px;
+}
+
+.news-text {
+  color: rgb(216, 231, 161);
 }
 
 img.icon {
